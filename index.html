@@ -1,445 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>🅽🅴🆃🅵🅻🅸🆇</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    :root{
-      --red:#ff1e1e;
-      --red-strong:#e50914;
-      --bg:#000;
-      --card:#111;
-      --muted:#ccc;
-    }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg);
-      color: #fff;
-    }
-    .login-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      color: var(--red);
-      text-shadow: 0 0 6px #a00000;
-      white-space: pre-line;
-      font-weight: bold;
-    }
-    input, button {
-      padding: 10px;
-      margin: 8px 0;
-      width: 100%;
-      max-width: 320px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: none;
-      box-sizing: border-box;
-    }
-    input {
-      background: var(--card);
-      color: #fff;
-    }
-    button {
-      background: var(--red-strong);
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    label {
-      font-size: 14px;
-      margin-top: 8px;
-    }
-    #app { display: none; padding: 20px; }
-    #player { width: 100%; max-width: 980px; display: none; margin: 0 auto 20px; background: #000; border-radius:6px; overflow:hidden; }
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 14px;
-      background-color: #111;
-      border-bottom: 2px solid var(--red-strong);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .top-bar span { color: var(--red-strong); font-weight: bold; font-size:14px; display:flex; align-items:center; gap:8px; }
-    #gifContainer, #perfilContainer {
-      display: none;
-      background-color: rgba(0,0,0,0.95);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 20px;
-    }
-    #gifContainer img { width: 220px; }
-    #emojiPicker span { font-size: 30px; cursor: pointer; }
-    .category { margin-bottom: 26px; padding: 0 4px; }
-    .category h2 { font-size:18px; margin:6px 0; display:flex; align-items:center; gap:10px; }
-    .ver-mais { font-size: 13px; color: var(--red); cursor: pointer; font-weight: 600; margin-left: 8px; text-decoration: none; background:transparent; border:none; }
-    .carousel { display: flex; overflow-x: auto; gap: 12px; padding: 10px 0; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
-    .item { flex: 0 0 auto; width: 150px; background: var(--card); border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid rgba(229,9,20,0.14); transition: transform .15s ease, box-shadow .15s ease; }
-    .item:hover { transform: translateY(-6px); box-shadow: 0 8px 24px rgba(0,0,0,0.6); border-color: rgba(229,9,20,0.35); }
-    .item img { width: 100%; height: 225px; object-fit: cover; display: block; background:#222; }
-    .item p { padding: 6px; font-size: 13px; text-align: center; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin:0; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 10px; align-items:start; }
-    .grid .item { width:100%; border: 2px solid rgba(229,9,20,0.12); }
-    .grid .item img { aspect-ratio: 2/3; height: auto; }
-    .small-link { color: var(--muted); font-size: 13px; cursor:pointer; text-decoration: underline; background:transparent; border:none;}
-    .episodes { padding: 10px; display:flex; flex-direction:column; gap:8px; }
-    button.ep-btn { padding:8px 10px; border-radius:6px; border:none; background:var(--red-strong); color:#fff; cursor:pointer; font-size:14px; }
-    /* responsive tweaks */
-    @media (max-width:600px){
-      .item { width: 120px; }
-      .item img { height: 180px; }
-      h1 { font-size:20px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="login-box" id="login">
-    <h1>╭━━━━━━━╮<br>┃🅽🅴🆃🅵🅻🅸🆇 J-APK˙🎬🍿┃<br>╰━━━━━━━╯</h1>
-    <input id="iptv_url" placeholder="URL do servidor Xtream" />
-    <input id="iptv_user" placeholder="Usuário" />
-    <input id="iptv_pass" placeholder="Senha" type="password" />
-    <label><input type="checkbox" id="remember"> Lembrar login</label>
-    <button onclick="login()">ENTRAR</button>
-    <div class="loading" id="loading" style="display:none;">Carregando...</div>
-    <p id="login_status" style="color:var(--muted)"></p>
-  </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#000000">
+<title>Netflix</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Cast SDK oficial -->
+<script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --netflix-red:#E50914;--netflix-red-hover:#b20710;--netflix-black:#141414;
+  --netflix-dark:#000;--netflix-gray:#808080;--netflix-light-gray:#b3b3b3;
+  --netflix-card:#181818;--netflix-card-hover:#252525;
+  --netflix-green:#46d369;--netflix-gold:#ffd700;--netflix-blue:#0080ff;
+  --nav-height:48px;--header-height:48px;
+  --font:'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+html,body{background:var(--netflix-dark);color:#fff;min-height:100%;overflow-x:hidden;
+  font-family:var(--font);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+::-webkit-scrollbar{width:0;height:0}
+img{-webkit-user-drag:none;user-select:none}
 
-  <div id="gifContainer"><img src="https://i.gifer.com/N8oR.gif" alt="loading"></div>
+/* ===== SPLASH / PROFILE SELECT ===== */
+.splash-screen{
+  position:fixed;inset:0;background:#000;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .6s ease
+}
+.splash-screen.hide{opacity:0;pointer-events:none}
+.splash-logo{
+  width:130px;
+  animation:splashAnim 2.2s cubic-bezier(.4,0,.2,1) forwards;
+  filter:drop-shadow(0 0 40px rgba(229,9,20,.5))
+}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+@keyframes splashAnim{
+  0%{opacity:0;transform:scale(1.8)}
+  25%{opacity:1;transform:scale(1)}
+  80%{opacity:1;transform:scale(1);filter:drop-shadow(0 0 40px rgba(229,9,20,.5))}
+  100%{opacity:0;transform:scale(.85);filter:drop-shadow(0 0 0px rgba(229,9,20,0))}
+}
 
-  <div id="perfilContainer">
-    <h2 style="color:white; margin-bottom:10px;">Escolha um emoji e digite seu nome</h2>
-    <div id="emojiPicker" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:20px;">
-      <span onclick="selecionarEmoji(this)">😀</span>
-      <span onclick="selecionarEmoji(this)">🎭</span>
-      <span onclick="selecionarEmoji(this)">🦸</span>
-      <span onclick="selecionarEmoji(this)">👽</span>
-      <span onclick="selecionarEmoji(this)">🐱</span>
-      <span onclick="selecionarEmoji(this)">🐉</span>
-      <span onclick="selecionarEmoji(this)">🧙‍♂️</span>
-      <span onclick="selecionarEmoji(this)">🤖</span>
-    </div>
-    <input id="nomePerfil" placeholder="Digite seu nome" style="padding:10px; font-size:16px; max-width:280px; width:100%; border-radius:6px; border:none; background:#222; color:white; margin-bottom:20px;" />
-    <button onclick="confirmarPerfil()" style="background:var(--red-strong); color:white; padding:10px 20px; border:none; border-radius:6px; font-size:16px; font-weight:bold;">ENTRAR</button>
-  </div>
+.profile-screen{
+  position:fixed;inset:0;
+  background:linear-gradient(160deg,#0d0d0d 0%,#141414 50%,#0a0a0a 100%);
+  z-index:8000;display:none;flex-direction:column;align-items:center;justify-content:center;gap:0
+}
+.profile-screen.show{display:flex;animation:profileFadeIn .4s ease}
+@keyframes profileFadeIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+.profile-screen-logo{height:30px;margin-bottom:40px;filter:drop-shadow(0 2px 12px rgba(229,9,20,.3))}
+.profile-screen h2{font-size:26px;font-weight:400;color:#fff;letter-spacing:.3px;margin-bottom:36px;text-align:center}
+.profiles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;padding:0 28px;width:100%;max-width:340px}
+.profile-item{display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:transform .22s cubic-bezier(.34,1.56,.64,1);-webkit-tap-highlight-color:transparent}
+.profile-item:hover{transform:scale(1.06)}
+.profile-item:active{transform:scale(.92)}
+.profile-item .p-avatar{width:100%;aspect-ratio:1;border-radius:10px;overflow:hidden;border:3px solid transparent;transition:border-color .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.6)}
+.profile-item:hover .p-avatar{border-color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.7)}
+.profile-item:active .p-avatar{border-color:#E50914;box-shadow:0 4px 16px rgba(229,9,20,.4)}
+.profile-item .p-avatar svg,.profile-item .p-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.profile-item .p-name{font-size:14px;color:var(--netflix-gray);transition:color .2s;font-weight:500;text-align:center;word-break:break-word;max-width:120px}
+.profile-item:hover .p-name{color:#fff}
+.profile-manage-btn{margin-top:32px;background:transparent;border:1px solid #555;color:#aaa;padding:10px 32px;border-radius:4px;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.5px}
+.profile-manage-btn:hover{border-color:#e5e5e5;color:#fff}
 
-  <div id="app">
-    <div class="top-bar">
-      <span id="perfilTopo">🙎🏽‍♂️ J-APK</span>
-      <span id="expira"></span>
-    </div>
-    <video id="player" controls playsinline></video>
-    <div id="conteudo"></div>
-    <div class="episodes" id="episodios"></div>
-  </div>
+/* ===== LOGIN ===== */
+.login-screen{display:flex;flex-direction:column;align-items:center;min-height:100vh;
+  background:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.4) 40%,rgba(0,0,0,.9) 80%,#000),
+  url('https://assets.nflxext.com/ffe/siteui/vlv3/bfc0fc46-24f6-4d70-85b3-7799b2b12f68/web/IN-en-20250120-POP_SIGNUP_TWO_WEEKS-perspective_WEB_db9f4cd4-0346-4e57-a1d3-635c161bfb60_large.jpg') center/cover no-repeat;
+  padding:0 0 40px}
+.login-header{width:100%;padding:16px 20px 0;display:flex;justify-content:flex-start}
+.login-header img{height:32px}
+.login-container{background:rgba(0,0,0,.75);border-radius:4px;padding:60px 68px 40px;width:calc(100% - 32px);max-width:450px;margin-top:40px}
+@media(max-width:500px){.login-container{padding:40px 24px 30px;border-radius:0;width:100%;max-width:100%;margin-top:20px;background:rgba(0,0,0,.85)}}
+.login-container h1{font-size:32px;font-weight:700;margin-bottom:28px;color:#fff}
+.login-form{display:flex;flex-direction:column;gap:16px}
+.input-float{position:relative;height:50px}
+.input-float input{width:100%;height:100%;padding:16px 16px 0;background:#333;border:none;border-radius:4px;color:#fff;font-size:16px;
+  transition:background .2s;border:1px solid #333}
+.input-float input:focus{outline:none;background:#454545;border-color:#e5e5e5}
+.input-float label{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#8c8c8c;font-size:14px;pointer-events:none;transition:all .15s ease}
+.input-float input:focus+label,.input-float input:not(:placeholder-shown)+label{top:8px;font-size:11px;transform:translateY(0);color:var(--netflix-light-gray)}
+.login-btn{background:var(--netflix-red);color:#fff;border:none;border-radius:4px;height:50px;font-size:16px;font-weight:600;cursor:pointer;
+  transition:background .2s;width:100%;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.login-btn:hover{background:var(--netflix-red-hover)}
+.login-btn:disabled{opacity:.5;cursor:not-allowed}
+.login-options{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.login-options label{display:flex;align-items:center;gap:6px;color:var(--netflix-light-gray);font-size:13px;cursor:pointer}
+.login-options input[type=checkbox]{width:16px;height:16px;accent-color:var(--netflix-red)}
+.login-help{color:var(--netflix-light-gray);font-size:13px;text-decoration:none}
+#loginError{color:#e87c03;font-size:13px;padding:8px 0;display:none;text-align:left}
+.login-footer{margin-top:40px;color:var(--netflix-gray);font-size:13px}
+.login-footer a{color:#fff;text-decoration:none}
 
-  <script>
-    let filmes = {}, series = {}, streamBase = "", token = "", emojiSelecionado = "";
+/* ===== MAIN SCREEN ===== */
+.main-screen{min-height:100vh;background:var(--netflix-black);padding-bottom:var(--nav-height);display:none}
 
-    function selecionarEmoji(el) {
-      document.querySelectorAll("#emojiPicker span").forEach(e => e.style.border = "none");
-      el.style.border = "2px solid var(--red-strong)";
-      emojiSelecionado = el.textContent;
-    }
-
-    function confirmarPerfil() {
-      const nome = document.getElementById("nomePerfil").value.trim();
-      if (!emojiSelecionado || !nome) {
-        alert("Escolha um emoji e digite um nome para continuar.");
-        return;
-      }
-      localStorage.setItem("perfilEmoji", emojiSelecionado);
-      localStorage.setItem("perfilNome", nome);
-      document.getElementById("perfilContainer").style.display = "none";
-      document.getElementById("app").style.display = "block";
-      atualizarTopoPerfil();
-      renderTelaPrincipal();
-    }
-
-    function atualizarTopoPerfil() {
-      const emoji = localStorage.getItem("perfilEmoji") || "🙎🏽‍♂️";
-      const nome = localStorage.getItem("perfilNome") || "J-APK";
-      document.getElementById("perfilTopo").innerHTML = `${emoji} ${nome} <img src='https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' style='height:18px; vertical-align:middle; margin-left:6px;'>`;
-    }
-
-    function login() {
-      const url = document.getElementById("iptv_url").value.trim();
-      const user = document.getElementById("iptv_user").value.trim();
-      const pass = document.getElementById("iptv_pass").value.trim();
-      const lembrar = document.getElementById("remember").checked;
-
-      if (!url || !user || !pass) {
-        document.getElementById("login_status").innerText = "Preencha todos os campos!";
-        return;
-      }
-
-      if (lembrar) {
-        localStorage.setItem("iptv_url", url);
-        localStorage.setItem("iptv_user", user);
-        localStorage.setItem("iptv_pass", pass);
-      }
-
-      document.getElementById("loading").style.display = "none";
-      document.getElementById("gifContainer").style.display = "flex";
-
-      streamBase = `${url}/movie/${user}/${pass}/`;
-      token = `username=${encodeURIComponent(user)}&password=${encodeURIComponent(pass)}`;
-
-      // get account info
-      fetch(`${url}/player_api.php?${token}`)
-        .then(r => r.json())
-        .then(info => {
-          try {
-            if (info && info.user_info && info.user_info.exp_date) {
-              const exp = new Date(info.user_info.exp_date * 1000).toLocaleDateString('pt-BR');
-              document.getElementById("expira").innerText = `📅 Vencimento: ${exp}`;
-            }
-          } catch(e){}
-        }).catch(()=>{});
-
-      // small delay to show gif
-      setTimeout(() => {
-        Promise.all([
-          fetch(`${url}/player_api.php?${token}&action=get_vod_streams`).then(r => r.json()).catch(()=>[]),
-          fetch(`${url}/player_api.php?${token}&action=get_series`).then(r => r.json()).catch(()=>[])
-        ]).then(([filmesData, seriesData]) => {
-          try {
-            // Deduplicate by name globally, then group by category
-            filmes = {};
-            series = {};
-            const filmesUnicos = new Map();
-            (filmesData || []).forEach(f => {
-              if (!f || !f.name) return;
-              if (filmesUnicos.has(f.name)) return;
-              filmesUnicos.set(f.name, f);
-              const cat = f.category_name || 'Sem categoria';
-              if (!filmes[cat]) filmes[cat] = [];
-              filmes[cat].push(f);
-            });
-            const seriesUnicas = new Map();
-            (seriesData || []).forEach(s => {
-              if (!s || !s.name) return;
-              if (seriesUnicas.has(s.name)) return;
-              seriesUnicas.set(s.name, s);
-              const cat = s.category_name || 'Sem categoria';
-              if (!series[cat]) series[cat] = [];
-              series[cat].push(s);
-            });
-          } catch(e){}
-          document.getElementById("login").style.display = "none";
-          document.getElementById("gifContainer").style.display = "none";
-          document.getElementById("perfilContainer").style.display = "flex";
-        }).catch(()=> {
-          document.getElementById("login_status").innerText = "Erro ao carregar dados do servidor.";
-          document.getElementById("gifContainer").style.display = "none";
-        });
-      }, 1200);
-    }
-
-    window.onload = () => {
-      const u = localStorage.getItem("iptv_url");
-      const l = localStorage.getItem("iptv_user");
-      const p = localStorage.getItem("iptv_pass");
-      if (u && l && p) {
-        document.getElementById("iptv_url").value = u;
-        document.getElementById("iptv_user").value = l;
-        document.getElementById("iptv_pass").value = p;
-        document.getElementById("remember").checked = true;
-      }
-      atualizarTopoPerfil();
-    };
-
-    function renderTelaPrincipal() {
-      const div = document.getElementById("conteudo");
-      div.innerHTML = "";
-
-      // Filmes section
-      const secFilmes = document.createElement("div");
-      secFilmes.className = "category";
-      secFilmes.innerHTML = `<h2>🍿 Filmes <button class='ver-mais' onclick='abrirFilmes()'>Ver mais</button></h2>`;
-      const filmesRow = document.createElement("div");
-      filmesRow.className = "carousel";
-
-      const categoriasFilmes = Object.keys(filmes || {});
-      if (categoriasFilmes.length === 0) {
-        filmesRow.innerHTML = `<div style="color:var(--muted); padding:12px;">Nenhum filme encontrado.</div>`;
-      } else {
-        // show first category (or the first available)
-        const cat = categoriasFilmes[0];
-        const lista = filmes[cat] || [];
-        const unicos = new Map();
-        lista.forEach(f => { if (!unicos.has(f.name)) unicos.set(f.name, f); });
-        Array.from(unicos.values()).slice(0,8).forEach(f => {
-          const item = document.createElement("div");
-          item.className = "item";
-          item.innerHTML = `<img loading="lazy" src="${f.stream_icon || ''}" onerror="this.style.display='none'"><p>${escapeHtml(f.name)}</p>`;
-          item.onclick = () => assistir(`${streamBase}${f.stream_id}.mp4`);
-          filmesRow.appendChild(item);
-        });
-      }
-      secFilmes.appendChild(filmesRow);
-      div.appendChild(secFilmes);
-
-      // Series section
-      const secSeries = document.createElement("div");
-      secSeries.className = "category";
-      secSeries.innerHTML = `<h2>🎬 Séries <button class='ver-mais' onclick='abrirSeries()'>Ver mais</button></h2>`;
-      const seriesRow = document.createElement("div");
-      seriesRow.className = "carousel";
-
-      const categoriasSeries = Object.keys(series || {});
-      if (categoriasSeries.length === 0) {
-        seriesRow.innerHTML = `<div style="color:var(--muted); padding:12px;">Nenhuma série encontrada.</div>`;
-      } else {
-        const catS = categoriasSeries[0];
-        const listaS = series[catS] || [];
-        const unicosS = new Map();
-        listaS.forEach(s => { if (!unicosS.has(s.name)) unicosS.set(s.name, s); });
-        Array.from(unicosS.values()).slice(0,8).forEach(s => {
-          const item = document.createElement("div");
-          item.className = "item";
-          item.innerHTML = `<img loading="lazy" src="${s.cover || ''}" onerror="this.style.display='none'"><p>${escapeHtml(s.name)}</p>`;
-          item.onclick = () => abrirSerieDetalhe(s.series_id, s.name);
-          seriesRow.appendChild(item);
-        });
-      }
-      secSeries.appendChild(seriesRow);
-      div.appendChild(secSeries);
-    }
-
-    function abrirFilmes() {
-      const div = document.getElementById("conteudo");
-      div.innerHTML = `<h2>🍿 Todos os Filmes <button class='small-link' onclick='renderTelaPrincipal()'>Voltar</button></h2>`;
-
-      const unicos = new Map();
-      for (let cat in filmes) {
-        (filmes[cat] || []).forEach(f => {
-          if (!unicos.has(f.name)) unicos.set(f.name, f);
-        });
-      }
-
-      const grid = document.createElement("div");
-      grid.className = "grid";
-      Array.from(unicos.values()).forEach(f => {
-        const item = document.createElement("div");
-        item.className = "item";
-        item.innerHTML = `<img loading="lazy" src="${f.stream_icon || ''}" onerror="this.style.display='none'"><p>${escapeHtml(f.name)}</p>`;
-        item.onclick = () => assistir(`${streamBase}${f.stream_id}.mp4`);
-        grid.appendChild(item);
-      });
-      div.appendChild(grid);
-    }
-
-    function abrirSeries() {
-      const div = document.getElementById("conteudo");
-      div.innerHTML = `<h2>🎬 Todas as Séries <button class='small-link' onclick='renderTelaPrincipal()'>Voltar</button></h2>`;
-
-      const unicos = new Map();
-      for (let cat in series) {
-        (series[cat] || []).forEach(s => {
-          if (!unicos.has(s.name)) unicos.set(s.name, s);
-        });
-      }
-
-      const grid = document.createElement("div");
-      grid.className = "grid";
-      Array.from(unicos.values()).forEach(s => {
-        const item = document.createElement("div");
-        item.className = "item";
-        item.innerHTML = `<img loading="lazy" src="${s.cover || ''}" onerror="this.style.display='none'"><p>${escapeHtml(s.name)}</p>`;
-        item.onclick = () => abrirSerieDetalhe(s.series_id, s.name);
-        grid.appendChild(item);
-      });
-      div.appendChild(grid);
-    }
-
-    async function abrirSerieDetalhe(seriesId, nome) {
-      const url = document.getElementById("iptv_url").value.trim();
-      const user = document.getElementById("iptv_user").value.trim();
-      const pass = document.getElementById("iptv_pass").value.trim();
-      const tokenLocal = `username=${encodeURIComponent(user)}&password=${encodeURIComponent(pass)}`;
-      const conteudo = document.getElementById("conteudo");
-
-      conteudo.innerHTML = `<h2>${escapeHtml(nome)} <button class='small-link' onclick='abrirSeries()'>Voltar</button></h2>`;
-
-      try {
-        const res = await fetch(`${url}/player_api.php?${tokenLocal}&action=get_series_info&series_id=${seriesId}`);
-        const data = await res.json();
-        let episodios = [];
-
-        if (data && data.episodes) {
-          for (let temporada in data.episodes) {
-            episodios = episodios.concat(data.episodes[temporada]);
-          }
-        }
-
-        if (episodios.length > 0) {
-          episodios.sort((a,b) => (a.season - b.season) || (a.episode_num - b.episode_num));
-
-          // auto-play first episode
-          const primeiro = episodios[0];
-          const player = document.getElementById("player");
-          player.src = `${url}/series/${user}/${pass}/${primeiro.id}.mp4`;
-          player.style.display = "block";
-          try { player.play().catch(()=>{}); } catch(e){}
-
-          const epList = document.createElement("div");
-          epList.className = "episodes";
-
-          episodios.forEach(ep => {
-            const btn = document.createElement("button");
-            btn.className = 'ep-btn';
-            btn.innerText = `T${ep.season} Ep${ep.episode_num}: ${ep.title || '—'}`;
-            btn.onclick = () => assistir(`${url}/series/${user}/${pass}/${ep.id}.mp4`);
-            epList.appendChild(btn);
-          });
-
-          conteudo.appendChild(epList);
-        } else {
-          conteudo.innerHTML += "<p style='color:#ccc'>Nenhum episódio encontrado para esta série.</p>";
-        }
-      } catch (e) {
-        conteudo.innerHTML += "<p style='color:red'>Erro ao carregar episódios.</p>";
-      }
-    }
-
-    function assistir(link) {
-      const player = document.getElementById("player");
-      player.src = link;
-      player.style.display = "block";
-      try { player.play().catch(()=>{}); } catch(e){}
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // small helper to avoid XSS from API names
-    function escapeHtml(str){
-      if(!str) return '';
-      return String(str).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; });
-    }
-  </script>
-</body>
-</html>
-background:transparent;display:flex;align-items:center;justify-content:space-between;
+/* ===== HEADER ===== */
+.header{
+  position:fixed;top:0;left:0;right:0;height:var(--header-height);
+  background:transparent;display:flex;align-items:center;justify-content:space-between;
   padding:0 12px;z-index:200;
   transition:background .4s ease, box-shadow .4s ease;
 }
